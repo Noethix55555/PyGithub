@@ -118,7 +118,7 @@ class Cli(unittest.TestCase):
             os.symlink(Path(test, "run"), after_path, target_is_directory=True)
 
             execute(
-                f"cd {self.tests_path}; env LANG=en_US.UTF-8 diff --recursive --new-file '{before_path.relative_to(self.tests_path)}' '{after_path.relative_to(self.tests_path)}' >'{actual_diff}' 2>&1 || true"
+                f"cd {self.tests_path}; env LANG=en_US.UTF-8 diff --unified --recursive --new-file '{before_path.relative_to(self.tests_path)}' '{after_path.relative_to(self.tests_path)}' >'{actual_diff}' 2>&1 || true"
             )
 
             os.unlink(before_path)
